@@ -142,7 +142,6 @@ public class HeapFile implements DbFile {
                     if (++currentPageNumber >= numPages()) return null;
                     pageTupleIterator = getPageTuples(currentPageNumber);
                 }
-    
                 return pageTupleIterator.next();
             }
     
