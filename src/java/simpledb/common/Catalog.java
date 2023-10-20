@@ -6,6 +6,7 @@ import simpledb.storage.TupleDesc;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * The Catalog keeps track of all available tables in the database and their
@@ -17,7 +18,7 @@ import java.util.*;
  * @Threadsafe
  */
 public class Catalog {
-    HashMap<Integer, Table> tables;
+    ConcurrentHashMap<Integer, Table> tables;
 
     public static class Table implements Serializable {
 
@@ -29,7 +30,8 @@ public class Catalog {
 
         public final String pkeyField;
 
-        public Table(DbFile file, String tableName, String pkeyField) {
+        // 
+        public Table (DbFile file, String tableName, String pkeyField) {
             this.file = file;
             this.tableName = tableName;
             this.pkeyField = pkeyField;
@@ -42,7 +44,7 @@ public class Catalog {
      */
     public Catalog() {
         // some code goes here
-        tables = new HashMap<>();
+        tables = new ConcurrentHashMap<>();
     }
 
     /**
