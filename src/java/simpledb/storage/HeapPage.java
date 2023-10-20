@@ -128,7 +128,7 @@ public class HeapPage implements Page {
      */
     public HeapPageId getId() {
         // some code goes here
-        throw new UnsupportedOperationException("implement this");
+        return pid;
     }
 
     /**
@@ -335,7 +335,11 @@ public class HeapPage implements Page {
      */
     public Iterator<Tuple> iterator() {
         // some code goes here
-        return null;
+        ArrayList<Tuple> available = new ArrayList<>();
+        for (int i=0; i<numSlots;i++)
+            if (isSlotUsed(i))
+                available.add(tuples[i]);
+        return available.iterator();
     }
 
 }
