@@ -82,7 +82,7 @@ public class HeapFile implements DbFile {
             byte[] data = new byte[BufferPool.getPageSize()];
             int offset = pid.getPageNumber() * BufferPool.getPageSize();
             raf.seek(offset);
-            raf.readFully(data);
+            raf.read(data, 0, BufferPool.getPageSize());
             raf.close();
             return new HeapPage((HeapPageId) pid, data);
         } catch (IOException e) {
