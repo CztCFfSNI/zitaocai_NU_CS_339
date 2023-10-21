@@ -225,7 +225,7 @@ public class TupleDesc implements Serializable {
     public String toString() {
         // some code goes here
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < numFields(); i++) sb.append(getFieldType(i)).append("(").append(getFieldName(i)).append("),");
+        for (int i = 0; i < numFields(); i++) sb.append(items[i].toString());
         return sb.toString();
     }
 }

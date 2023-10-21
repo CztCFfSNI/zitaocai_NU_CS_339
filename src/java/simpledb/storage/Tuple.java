@@ -69,7 +69,7 @@ public class Tuple implements Serializable {
     public void setField(int i, Field f) {
         // some code goes here
         if (i < 0 || i >= fields.length) throw new IllegalArgumentException("Invalid index: " + i);
-        if (f.getType() != tupleDesc.getFieldType(i)) throw new RuntimeException("Fail!Not the same field type!");
+        if (f.getType() != tupleDesc.getFieldType(i)) throw new RuntimeException("Fail! Not the same field type!");
         fields[i] = f;
     }
 

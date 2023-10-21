@@ -29,7 +29,7 @@ public class BufferPool {
 
     private static int pageSize = DEFAULT_PAGE_SIZE;
 
-    private int numPages;
+    private final int numPages;
     private final ConcurrentMap<PageId, Page> pages;
     
     /** Default number of pages passed to the constructor. This is used by

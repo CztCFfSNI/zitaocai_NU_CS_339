@@ -86,8 +86,7 @@ public class HeapFile implements DbFile {
             raf.close();
             return new HeapPage((HeapPageId) pid, data);
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException("Unable to read page from file.");
+            throw new IllegalArgumentException("ReadPage failed!");
         }
     }
 
